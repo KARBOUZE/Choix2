@@ -33,13 +33,24 @@ public class MainController {
         t = new Timer();
         tk = Toolkit.getDefaultToolkit();
         opera = ChooseOperatorsQ4();
+        showessage();
         //initial delay and subsequent rate
-        System.out.println("Choose two right operators from the following operators '+','-','*','/' ");
         t.schedule(new rt(), 0, 1*1000);
+        String[] sh = redlines();
+        (new ArithemeticOperations()).check(opera[0],sh[0],opera[1],sh[1]);
+    }
+
+    public void showessage(){
+        System.out.println("Choose two right operators from the following operators '+','-','*','/' ");
+        System.out.println("You have 10 seconds to answer the question");
+
+    }
+
+    public String[] redlines(){
         Scanner sc = new Scanner(System.in);
         String response1 = sc.next();
         String response2 = sc.next();
-        (new ArithemeticOperations()).check(opera[0],response1,opera[1],response2);
+        return new String[]{response1,response2};
     }
 
     public String[] ChooseOperatorsQ4(){

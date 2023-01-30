@@ -1,6 +1,7 @@
 package com.arithemetic.operations;
 
 import com.arithemetic.CountDownTimerExample;
+import com.arithemetic.accessingdatamysql.controller.MainController;
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
 
@@ -99,13 +100,12 @@ public class ArithemeticOperations {
         t = new Timer();
         tk = Toolkit.getDefaultToolkit();
         opera = ChooseOperators();
+        MainController mc = new MainController();
+        mc.showessage();
         //initial delay and subsequent rate
-        System.out.println("Choose two right operators from the following operators '+','-','*','/' ");
         t.schedule(new rt(), 0, 1*1000);
-        Scanner sc = new Scanner(System.in);
-        String response1 = sc.next();
-        String response2 = sc.next();
-        check(opera[0],response1,opera[1],response2);
+        String[] sh = mc.redlines();
+        check(opera[0],sh[0],opera[1],sh[1]);
     }
 
     class rt extends TimerTask {
